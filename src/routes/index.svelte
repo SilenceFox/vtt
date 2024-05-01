@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	let username: string = '';
 	let showForm: boolean = false;
+    let timeout = 6000;
 	onMount(() => {
 		const storedUsername: string | null = localStorage.getItem('username');
 		if (storedUsername) {
@@ -11,7 +12,9 @@
 			showForm = true;
 		} // If showForm is false (meaning the form should not be shown), redirect to /chat
 		if (!showForm) {
-			goto('/chat');
+           setTimeout(() => {
+                    goto('/chat');
+                }, timeout);
 		}
 	});
 	function handleSubmit() {
@@ -28,5 +31,5 @@
 	</form>
 {:else}
 	<p>Welcome, {username}!</p>
-	<button on:click={() => goto('/chat')}>Go to Home (You should have been redirected)</button>
+  <button on:click={() => goto('/chat')}>Go to Home (You will be redirected in {timeout/1000} seconds)</button>
 {/if}
