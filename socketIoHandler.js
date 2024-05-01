@@ -15,6 +15,5 @@ export default function injectSocketIO(server) {
 			});
 		});
 	});
-
 	console.log('SocketIO injected');
 }
