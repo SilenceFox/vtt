@@ -1,75 +1,29 @@
 <script lang="ts">
-	import { io } from '$lib/webSocketConnection.js';
-	import { onMount } from 'svelte';
-
-	let textfield = '';
-	let username = '';
-
-	let messages: any[] = [];
-
-	onMount(() => {
-		io.on('message', (message) => {
-			messages = [...messages, message];
-		});
-		io.on('name', (name) => {
-			username = name;
-		});
-	});
-
-	function sendMessage() {
-		const message = textfield.trim();
-		if (!message) return;
-
-		textfield = '';
-		io.emit('message', message);
-	}
+ import { onMount } from 'svelte';
+ import { goto } from '$app/navigation';
+ let username: string = '';
+ let showForm: boolean = false;
+ onMount(() => {
+    const storedUsername: string | null = localStorage.getItem('username');
+    if (storedUsername) {
+      username = storedUsername;
+    } else {
+      showForm = true;
+    }
+ });
+ function handleSubmit() {
+    localStorage.setItem('username', username);
+    goto('/'); // Redirect to the project root
+ }
 </script>
-	<div class="container">
-		<header class=" container-header">
-			<i class="nf nf-fa-skull"></i>
-			<span>{username}</span>
-		</header>
 
-		<div class="container-content">
-			{#each messages as message}
-				<div class="chat-message">
-					<span class="message-time">
-						<b>{message.from}</b>
-						<i>{message.time}</i>
-					</span>
-					<span class="message-content">
-						{message.message}
-					</span>
-				</div>
-				<div class="chat-user-message">
-					<span class="message-time">
-						<b>{message.from}</b>
-						<i>{message.time}</i>
-					</span>
-					<span class="message-content">
-						{message.message}
-					</span>
-				</div>
-			{/each}
-		</div>
-
-		<form
-			action="#"
-			on:submit|preventDefault={sendMessage}
-			class="container-footer"
-		>
-			<input
-				type="text"
-				bind:value={textfield}
-				placeholder="Digite sua mensagem..."
-				class="chat-text"
-			/>
-			<button type="submit" class="chat-button">
-				<i class="nf nf-md-send"></i>
-			</button>
-		</form>
-	</div>
-<style>
-	@import "https://www.nerdfonts.com/assets/css/webfont.css";
-	@import './styles.css';
-</style>
+{#if showForm}
+ <form on:submit|preventDefault={handleSubmit}>
+    <label for="username">Username:</label>
+    <input id="username" type="text" bind:value={username} required />
+    <button type="submit">Save</button>
+ </form>
+{:else}
+ <p>Welcome, {username}!</p>
+ <button on:click={() => goto('/chat')}>Go to Home</button>
+{/if}
