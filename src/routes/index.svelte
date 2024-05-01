@@ -5,7 +5,7 @@
 	let textfield = '';
 	let username = '';
 
-	let messages = [];
+	let messages: any[] = [];
 
 	onMount(() => {
 		io.on('message', (message) => {
@@ -24,24 +24,31 @@
 		io.emit('message', message);
 	}
 </script>
-
-<div class="h-screen w-screen bg-zinc-800">
-	<div class="h-full w-full max-w-md mx-auto bg-zinc-500 flex flex-col">
-		<header
-			class="px-6 py-4 border-b border-zinc-800 bg-zinc-700 text-white shrink-0 flex items-center justify-between"
-		>
-			<span class="font-bold text-xl">My Chat app</span>
+	<div class="container">
+		<header class=" container-header">
+			<i class="nf nf-fa-skull"></i>
 			<span>{username}</span>
 		</header>
 
-		<div class="h-full w-full p-4">
+		<div class="container-content">
 			{#each messages as message}
-				<div class="bg-zinc-300 rounded-xl rounded-tl-none px-4 py-3 my-4 w-fit">
-					<span class="flex items-center space-between gap-4">
+				<div class="chat-message">
+					<span class="message-time">
 						<b>{message.from}</b>
 						<i>{message.time}</i>
 					</span>
-					{message.message}
+					<span class="message-content">
+						{message.message}
+					</span>
+				</div>
+				<div class="chat-user-message">
+					<span class="message-time">
+						<b>{message.from}</b>
+						<i>{message.time}</i>
+					</span>
+					<span class="message-content">
+						{message.message}
+					</span>
 				</div>
 			{/each}
 		</div>
@@ -49,15 +56,20 @@
 		<form
 			action="#"
 			on:submit|preventDefault={sendMessage}
-			class="px-6 py-4 border-t border-zinc-800 bg-zinc-700 text-white shrink-0 flex items-center"
+			class="container-footer"
 		>
 			<input
 				type="text"
 				bind:value={textfield}
-				placeholder="Type something..."
-				class="bg-transparent border-none px-4 py-3 w-full"
+				placeholder="Digite sua mensagem..."
+				class="chat-text"
 			/>
-			<button type="submit" class="shrink-0 border border-white rounded-lg px-4 py-3">Send</button>
+			<button type="submit" class="chat-button">
+				<i class="nf nf-md-send"></i>
+			</button>
 		</form>
 	</div>
-</div>
+<style>
+	@import "https://www.nerdfonts.com/assets/css/webfont.css";
+	@import './styles.css';
+</style>

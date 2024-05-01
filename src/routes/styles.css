@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* Color variables */
+    --primary-0: #06070e;
+    --primary-1: #0f1120;
+    --primary-2: #181c38;
+    --highlight-1: #98a2be;
+}
+
+body {
+    font-family: "Ubuntu Mono", monospace;
+    font-size: 14px;
+    background-color: var(--primary-0);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: left;
+}
+
+.container {
+    height: 100vh;
+    width: 320px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 15px 15px 0;
+    background-color: var(--primary-2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+
+}
+
+.container-header {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-1);
+    color: var(--highlight-1);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.container-header span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.container-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: var(--primary-2);
+    padding: 1rem;
+}
+
+.container-content::-webkit-scrollbar {
+    background-color: var(--primary-2);
+}
+
+.container-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-1);
+    border: 3px solid var(--primary-2);
+    border-radius: 15px;
+}
+
+.container-content:hover::-webkit-scrollbar-thumb {
+    background-color: var(--highlight-1);
+}
+
+.chat-message {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    background-color: var(--primary-1);
+    color: var(--highlight-1);
+    border-radius: 0 15px 15px 15px;
+    padding: .5rem 1rem;
+}
+
+.chat-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-1);
+    border-radius: 0 0 0 15px;
+}
+
+.chat-message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-2);
+    border-radius: 0 15px 0 0;
+}
+
+.chat-user-message {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    background-color: var(--highlight-1);
+    color: var(--primary-1);
+    border-radius: 15px 0 15px 15px;
+    padding: .5rem 1rem;
+}
+
+.chat-user-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--highlight-1);
+    border-radius: 0 0 15px 0;
+}
+
+.chat-user-message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-2);
+    border-radius: 15px 0 0 0;
+}
+
+.message-time {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.message-content {
+    line-break: anywhere;
+    max-width: 100%;
+}
+
+.container-footer {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    padding: .8rem;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-1);
+    color: var(--highlight-1);
+    font-size: 14px;
+}
+
+.chat-text {
+    background-color: var(--primary-2);
+    color: var(--highlight-1);
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    padding: 1rem;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+.chat-text::placeholder {
+    color: var(--highlight-1);
+}
+
+.chat-text:focus {
+    outline: 1px solid var(--highlight-1);
+}
+
+.chat-button {
+    background-color: var(--primary-1);
+    color: var(--highlight-1);
+    height: 100%;
+    width: 2.5rem;
+    border-radius: 100%;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+    outline: none;
+}
+
+.chat-button:hover {
+    background-color: var(--primary-2);
+}
+
+.chat-button:focus {
+    outline: none;
+}
+
+.chat-button:active {
+    background-color: var(--highlight-1);
+    color: var(--primary-1);
+}
