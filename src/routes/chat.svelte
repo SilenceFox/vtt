@@ -36,8 +36,8 @@
 	}
 </script>
 
-<div class="container">
-	<header class=" container-header">
+<div class="container-chat">
+	<header class=" container-chat-header">
 		<button on:click={() => goto('/')}>
 			<i class="nf nf-fa-skull" />
 		</button>
@@ -45,7 +45,7 @@
 		<span>{username}</span>
 	</header>
 
-	<div class="container-content">
+	<div class="container-chat-content">
 		{#each messages as message}
 			<div class={message.from === username ? 'chat-user-message' : 'chat-message'}>
 				<span class="message-time">
@@ -59,7 +59,7 @@
 		{/each}
 	</div>
 
-	<form action="#" on:submit|preventDefault={sendMessage} class="container-footer">
+	<form class="container-chat-footer" action="#" on:submit|preventDefault={sendMessage}>
 		<input
 			type="text"
 			bind:value={textfield}

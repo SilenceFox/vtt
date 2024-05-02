@@ -16,10 +16,13 @@ body {
 	width: 100vw;
 	height: 100vh;
 	align-items: center;
-	justify-content: left;
+	justify-content: center;
 }
 
-.container {
+.container-chat {
+	position: absolute;
+	left: 0;
+	top: 0;
 	height: 100vh;
 	width: 320px;
 	overflow: hidden;
@@ -30,7 +33,7 @@ body {
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.container-header {
+.container-chat-header {
 	height: 4rem;
 	width: 100%;
 	display: flex;
@@ -44,12 +47,12 @@ body {
 	font-size: 18px;
 }
 
-.container-header span {
+.container-chat-header span {
 	font-size: 14px;
 	font-weight: normal;
 }
 
-.container-content {
+.container-chat-content {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -62,17 +65,17 @@ body {
 	padding: 1rem;
 }
 
-.container-content::-webkit-scrollbar {
+.container-chat-content::-webkit-scrollbar {
 	background-color: var(--primary-2);
 }
 
-.container-content::-webkit-scrollbar-thumb {
+.container-chat-content::-webkit-scrollbar-thumb {
 	background-color: var(--primary-1);
 	border: 3px solid var(--primary-2);
 	border-radius: 15px;
 }
 
-.container-content:hover::-webkit-scrollbar-thumb {
+.container-chat-content:hover::-webkit-scrollbar-thumb {
 	background-color: var(--highlight-1);
 }
 
@@ -156,7 +159,7 @@ body {
 	max-width: 100%;
 }
 
-.container-footer {
+.container-chat-footer {
 	height: 4rem;
 	width: 100%;
 	display: flex;
@@ -169,10 +172,11 @@ body {
 	font-size: 14px;
 }
 
-.chat-text {
+.chat-text,
+#username {
 	background-color: var(--primary-2);
 	color: var(--highlight-1);
-	height: 100%;
+	height: 1rem;
 	width: 100%;
 	border-radius: 15px;
 	padding: 1rem;
@@ -180,37 +184,102 @@ body {
 	transition: all 0.2s ease-in-out;
 }
 
-.chat-text::placeholder {
+.chat-text::placeholder,
+#username::placeholder {
 	color: var(--highlight-1);
 }
 
-.chat-text:focus {
+.chat-text:focus,
+#username:focus {
 	outline: 1px solid var(--highlight-1);
 }
 
-.chat-button {
+
+
+/* GREET CSS */
+.container-greet {
 	background-color: var(--primary-1);
 	color: var(--highlight-1);
-	height: 100%;
-	width: 2.5rem;
-	border-radius: 100%;
-	padding: 0.5rem;
+	height: fit-content;
+	width: 20rem;
+	padding: 1rem;
+	border-radius: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	font-size: 16px;
+}
+
+.container-greet #greeting {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	line-height: normal;
+	max-width: 80%;
+	overflow:hidden;
+}
+
+.container-greet #greeting span {
+	font-size: 38px;
+	font-weight: bold;
+}
+
+.container-greet button,
+.chat-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-color: var(--primary-1);
+	color: var(--highlight-1);
+	padding: 1rem;
+	border-radius: 100%;
+	width: 2.5rem;
+	height: 2.5rem;
 	transition: all 0.2s ease-in-out;
 	outline: none;
 }
 
+.container-greet button:hover,
 .chat-button:hover {
 	background-color: var(--primary-2);
 }
 
+.container-greet button:focus,
 .chat-button:focus {
 	outline: none;
 }
 
+.container-greet button:active,
 .chat-button:active {
 	background-color: var(--highlight-1);
 	color: var(--primary-1);
+}
+
+.container-greet #timeout-greet {
+	font-size: 14px;
+	font-style: italic;
+}
+
+#login-form {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: .5rem;
+}
+
+.container-greet .user-icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container-greet #username {
+	margin: 0;
+	align-self: center;
 }
