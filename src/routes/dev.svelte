@@ -1,13 +1,11 @@
 <!--- import all the development stuff here to try out --->
 <script lang="ts">
-import { notify } from '../components/util/notification.svelte'; // Adjust the path as necessary
- function triggerNotification() {
-    notify('This is a notification message!', { duration: 100 });
- }
+  import Notification from '../components/util/Notification.svelte';
+
 </script>
 <body>
  <h1>whats up</h1>
- <button on:click={triggerNotification}> Show Notification</button>
+  <Notification message="suuup" />
 </body>
 
 
