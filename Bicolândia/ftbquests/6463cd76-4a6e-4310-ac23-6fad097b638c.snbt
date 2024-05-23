@@ -1,0 +1,16 @@
+{
+	version: 1
+	uuid: "6463cd764a6e4310ac236fad097b638c"
+	name: "KawaiiCyborg007#6463cd76"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: {
+		6463cd764a6e4310ac236fad097b638c: {
+			can_edit: 1b
+		}
+	}
+}

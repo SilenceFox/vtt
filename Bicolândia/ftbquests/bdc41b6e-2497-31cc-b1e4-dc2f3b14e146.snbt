@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "bdc41b6e249731ccb1e4dc2f3b14e146"
+	name: "zSilenceFox#bdc41b6e"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

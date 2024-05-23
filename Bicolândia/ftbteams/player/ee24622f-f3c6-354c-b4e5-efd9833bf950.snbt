@@ -1,0 +1,17 @@
+{
+	id: "ee24622f-f3c6-354c-b4e5-efd9833bf950"
+	type: "player"
+	player_name: "minecraft"
+	ranks: {
+		ee24622f-f3c6-354c-b4e5-efd9833bf950: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "minecraft"
+		"ftbteams:description": ""
+		"ftbteams:color": "#59C2FF"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

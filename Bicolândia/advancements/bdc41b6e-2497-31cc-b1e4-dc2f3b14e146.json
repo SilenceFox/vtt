@@ -1,0 +1,16 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-05-22 20:44:50 -0300"
+    },
+    "done": true
+  },
+  "wythers:world_explorer": {
+    "criteria": {
+      "wythers:boreal_forest_red": "2024-05-22 20:44:51 -0300",
+      "wythers:crimson_tundra": "2024-05-22 20:45:40 -0300"
+    },
+    "done": false
+  },
+  "DataVersion": 3465
+}

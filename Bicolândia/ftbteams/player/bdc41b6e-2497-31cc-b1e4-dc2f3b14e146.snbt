@@ -1,0 +1,17 @@
+{
+	id: "bdc41b6e-2497-31cc-b1e4-dc2f3b14e146"
+	type: "player"
+	player_name: "zSilenceFox"
+	ranks: {
+		bdc41b6e-2497-31cc-b1e4-dc2f3b14e146: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "zSilenceFox"
+		"ftbteams:description": ""
+		"ftbteams:color": "#FF59EE"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

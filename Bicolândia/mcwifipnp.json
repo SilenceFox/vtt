@@ -1,0 +1,13 @@
+{
+  "port": 6969,
+  "maxPlayers": 10,
+  "GameMode": "survival",
+  "motd": "Onde mais se encontram jaguaras.",
+  "AllPlayersCheats": false,
+  "Whitelist": false,
+  "UseUPnP": true,
+  "AllowCommands": false,
+  "OnlineMode": false,
+  "PvP": true,
+  "CopyToClipboard": true
+}
